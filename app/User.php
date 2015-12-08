@@ -36,4 +36,15 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+	
+    public function project() {
+        # User has many Books
+        # Define a one-to-many relationship.
+        return $this->hasMany('\App\Project');
+    }
+    public function image() {
+        # User has many Images
+        # Define a one-to-many relationship.
+        return $this->hasMany('\App\Image');
+    }
 }
