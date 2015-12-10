@@ -10,5 +10,7 @@ class Project extends Model
         # Project belongs to User
         # Define an inverse one-to-many relationship.
         return $this->belongsTo('\App\User');
+	}
     
 }
+

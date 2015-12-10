@@ -1,39 +1,52 @@
 @extends('layouts.master')
 
+@section('head')
+<link rel="stylesheet" href="<?php echo asset('css/login.css')?>" type="text/css"> 
+<link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
+<script src="<?php echo asset('js/login.js')?>"></script>
+@stop
+
 @section('content')
 
-    <p>Don't have an account? <a href='/p4/p4/public/register'>Register here...</a></p>
-
-    <h1>Login</h1>
-
-    @if(count($errors) > 0)
-        <ul class='errors'>
-            @foreach ($errors->all() as $error)
-                <li><span class='fa fa-exclamation-circle'></span> {{ $error }}</li>
-            @endforeach
-        </ul>
-    @endif
-
-    <form method='POST' action='/p4/p4/public/login'>
-
+ <div class="cont">
+  <div class="demo">
+    <div class="login">
+      <img class="logo-image" src="http://media.www.harvard.edu/user13/harvard_shield_wreath.png" />
+	    <form method='POST' action='{{Request::url()}}'>
         {!! csrf_field() !!}
-
-        <div class='form-group'>
-            <label for='email'>Email</label>
-            <input type='text' name='email' id='email' value='{{ old('email') }}'>
+      <div class="login__form">
+        <div class="login__row">
+          <svg class="login__icon name svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 a10,8 0 0,1 20,0z M10,0 a4,4 0 0,1 0,8 a4,4 0 0,1 0,-8" />
+          </svg>
+          <input type="text" name="email" class="login__input name" placeholder="Username"/>
         </div>
-
-        <div class='form-group'>
-            <label for='password'>Password</label>
-            <input type='password' name='password' id='password' value='{{ old('password') }}'>
+        <div class="login__row">
+          <svg class="login__icon pass svg-icon" viewBox="0 0 20 20">
+            <path d="M0,20 20,20 20,8 0,8z M10,13 10,16z M4,8 a6,8 0 0,1 12,0" />
+          </svg>
+          <input type="password" name="password" class="login__input pass" placeholder="Password"/>
         </div>
+        <button type="button" class="login__submit">Sign in</button>
+        <p class="login__signup">Don't have an account? &nbsp;<a>Sign up</a></p>
+      </div>
+	  </form>
+    </div>
+    <div class="app">
+	   <div class="login__check"></div>
+      <div class="app__top">
+        
+      </div>
+      <div class="app__bot">
+        Welcome back!
+      </div>
+      
+    </div>
+  </div>
+</div>
 
-        <div class='form-group'>
-            <input type='checkbox' name='remember' id='remember'>
-            <label for='remember' class='checkboxLabel'>Remember me</label>
-        </div>
+	<script type="text/javascript">
+		var APP_URL = "{{Request::url()}}";
+	</script>
 
-        <button type='submit' class='btn btn-primary'>Login</button>
-
-    </form>
 @stop

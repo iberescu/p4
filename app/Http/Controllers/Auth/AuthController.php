@@ -7,6 +7,8 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+use Response;
 
 class AuthController extends Controller
 {
@@ -83,4 +85,52 @@ class AuthController extends Controller
 		\Session::flash('flash_message','You have been logged out.');
 		return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
 	}	
+	
+	/**
+	 * Handle an ajax login request to the application
+	 * 
+	 * @param \Illuminate\Http\Request $request
+	 * @param \Illuminate\Http\Response
+	 */ 
+	public function postLogin(Request $request)
+	{
+		$rules = [
+			'email' => 'required|email', 'password' => 'required',
+		];
+		$validator = Validator::make($request->all(), $rules);
+		
+		// Validate the input and return correct response
+		if ($validator->fails())
+		{
+			$errors = $validator->getMessageBag()->toArray();
+			$msg = '';
+			if (isset($errors['email'])) $msg .= implode(',',$errors['email']);
+			if (isset($errors['password'])) $msg .= implode(',',$errors['password']);
+			
+			return Response::json(array(
+				'success' => false,
+				'error' => $msg,
+			));
+		}
+		
+		$credentials = $request->only('email', 'password');
+
+		if (auth()->attempt($credentials))
+		{
+			return Response::json(array(
+				'success' => true
+			));
+		}
+		else
+		{
+			return Response::json(array(
+				'success' => false,
+				'error' => $this->getFailedLoginMessage()
+			));
+			
+		}
+
+
+	}	
+	
 }

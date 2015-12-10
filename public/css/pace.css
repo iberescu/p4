@@ -1,0 +1,166 @@
+body:not(.pace-done) > :not(.pace), body:not(.pace-done):before, body:not(.pace-done):after {
+    opacity : 0
+}
+.ip-logo,
+.ip-loader {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	opacity: 1;
+	cursor: default;
+	pointer-events: none;
+}
+
+.ip-logo {
+	top: 0;
+	height: 100%;
+	-webkit-transform: translate3d(0,25%,0);
+	transform: translate3d(0,25%,0);
+}
+
+.ip-loader {
+	bottom: 20%;
+}
+
+.ip-inner {
+	display: block;
+	margin: 0 auto;
+}
+.ip-loader svg path {
+	fill: none;
+	stroke-width: 6;
+}
+
+.ip-loader svg path.ip-loader-circlebg {
+	stroke: #ddd;
+}
+
+.ip-loader svg path.ip-loader-circle {
+	-webkit-transition: stroke-dashoffset 0.2s;
+	transition: stroke-dashoffset 0.2s;
+	stroke: #a51c30;
+}
+
+.pace_image_logo {
+
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+	width:350px;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.pace {
+    -webkit-pointer-events  : none;
+    pointer-events          : none;
+    -webkit-user-select     : none;
+    -moz-user-select        : none;
+    user-select             : none;
+    -webkit-box-sizing      : border-box;
+    -moz-box-sizing         : border-box;
+    -ms-box-sizing          : border-box;
+    -o-box-sizing           : border-box;
+    box-sizing              : border-box;
+    -webkit-border-radius   : 10px;
+    -moz-border-radius      : 10px;
+    border-radius           : 10px;
+    -webkit-background-clip : padding-box;
+    -moz-background-clip    : padding;
+    background-clip         : padding-box;
+    z-index                 : 2000;
+    position                : fixed;
+    margin                  : auto;
+    top                     : 12px;
+    left                    : 0;
+    right                   : 0;
+    bottom                  : 0;
+    width                   : 700px;
+    height                  : 600px;
+    overflow                : hidden;
+}
+
+.pace .pace-progress {
+    -webkit-box-sizing      : border-box;
+    -moz-box-sizing         : border-box;
+    -ms-box-sizing          : border-box;
+    -o-box-sizing           : border-box;
+    box-sizing              : border-box;
+    -webkit-border-radius   : 2px;
+    -moz-border-radius      : 2px;
+    border-radius           : 2px;
+    -webkit-background-clip : padding-box;
+    -moz-background-clip    : padding;
+    background-clip         : padding-box;
+    -webkit-transform       : translate3d(0, 0, 0);
+    transform               : translate3d(0, 0, 0);
+    display                 : block;
+    position                : absolute;
+    right                   : 100%;
+    margin-right            : -7px;
+    width                   : 93%;
+    top                     : 292px;
+    height                  : 14px;
+    font-size               : 12px;
+    background              : #5C5C5C;
+    color                   : #5C5C5C;
+    line-height             : 60px;
+    font-weight             : bold;
+    font-family             : Helvetica, Arial, "Lucida Grande", sans-serif;
+    -webkit-box-shadow      : 120px 0 #FFFFFF, 240px 0 #FFFFFF;
+    -ms-box-shadow          : 120px 0 #FFFFFF, 240px 0 #FFFFFF;
+    box-shadow              : 120px 0 #FFFFFF, 240px 0 #FFFFFF;
+}
+
+.pace .pace-progress:after {
+    content    : attr(data-progress-text);
+    display    : inline-block;
+    position   : fixed;
+    width      : 200px;
+    text-align : center;
+    right      : 0;
+    top        : 4px;
+}
+
+.pace .pace-activity {
+    position      : absolute;
+    width         : 100%;
+    height        : 28px;
+    z-index       : 2001;
+    box-shadow    : inset 0 0 0 2px #5C5C5C, inset 0 0 0 7px #FFFFFF;
+    border-radius : 10px;
+}
+
+.pace.pace-inactive {
+    display : none;
+}

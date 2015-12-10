@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'WelcomeController@getIndex');
 
 # Show login form
 Route::get('/login', 'Auth\AuthController@getLogin');
@@ -31,18 +28,11 @@ Route::get('/register', 'Auth\AuthController@getRegister');
 # Process registration form
 Route::post('/register', 'Auth\AuthController@postRegister');
 
-Route::get('/confirm-login-worked', function() {
+# Process registration form
+Route::get('/create', 'DesignController@getCreate');
 
-    # You may access the authenticated user via the Auth facade
-    $user = Auth::user();
+# Process registration form
+Route::get('/design/{id?}', 'DesignController@getDesign');
 
-    if($user) {
-        echo 'You are logged in.';
-        dump($user->toArray());
-    } else {
-        echo 'You are not logged in.';
-    }
-
-    return;
-
-});
+# Process project save
+Route::post('/design/save/', 'DesignController@postSave');

@@ -1,0 +1,16 @@
+@font-face {
+    font-family:Kelson Sans ;
+    src: url('../font/Kelson_Sans_Regular.woff'),url('../font/Kelson_Sans_Regular.otf');
+}
+@font-face {
+    font-family:Open Sans ;
+    src: url('../font/OpenSans-Regular.ttf');
+}
+@font-face {
+    font-family: "Proxima Nova" ;
+    src: url('../font/VNF-ProximaNovaCond-Regular.ttf');
+}
+@font-face {
+    font-family: "Verdana" ;
+    src: url('../font/verdana.ttf');
+}

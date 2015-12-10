@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/* CSS Document */
+/*#172322*/
+ 		#ddmenu{ margin:0px; padding:0px; list-style:none; color:#fff; line-height:45px; display:inline-block; float:left; z-index:1000; }
+        #ddmenu a { color:#ffffff; text-decoration:none; }
+        #ddmenu > li {background:transparent none repeat scroll 0 0; cursor:pointer; opacity:0.80; float:left; position:relative;padding:0px 10px;}
+        #ddmenu > li a:hover {color:#d0d0ce;}
+        #ddmenu .logo {background:transparent none repeat scroll 0% 0%; padding:0px; background-color:Transparent;}
+        /* sub-menus*/
+        #ddmenu ul { padding:0px; margin:0px; display:block; display:inline;}
+        #ddmenu li ul { position:absolute; left:0px; top:0px; margin-top:45px; width:150px; line-height:16px; background-color:#000000; color:#7ed6eb; /* for IE */ display:none; }
+        #ddmenu li:hover ul { display:block;}
+        #ddmenu li ul li{ display:block; margin:5px 20px; margin-left:34px; padding: 5px 0px;  border-top: dotted 1px #606060; list-style-type:none; }
+        #ddmenu li ul li:first-child { border-top: none; }
+        #ddmenu li ul li a { display:block; color:#7ed6eb; }
+        #ddmenu li ul li a:hover { color:#7FCDFE; }
+        /* main submenu */
+        #ddmenu #main { left:0px; top:-20px; padding-top:20px; background-color:#7cb7e3; color:#fff; z-index:999;}
+        /* search */
+        .searchContainer div { background-color:#fff; display:inline; padding:5px;}
+        .searchContainer input[type="text"] {border:none;}
+        .searchContainer img { vertical-align:middle;}
+        /* corners*/
+        #ddmenu .corner_inset_left { position:absolute; top:0px; left:-12px;}
+        #ddmenu .corner_inset_right { position:absolute; top:0px; left:150px;}
+        #ddmenu .last { background:transparent none repeat scroll 0% 0%; margin:0px; padding:0px; border:none; position:relative; border:none; height:0px;}
+        #ddmenu .corner_left { position:absolute; left:0px; top:0px;}
+        #ddmenu .corner_right { position:absolute; left:132px; top:0px;}
+        #ddmenu .middle { position:absolute; left:18px; height: 20px; width: 115px; top:0px;}
+
+
+		/* BACKGROUND */
+
+        #ddmenubackground a { color:#ffffff; text-decoration:none; }
+        #ddmenubackground > li {background:transparent none repeat scroll 0 0; cursor:pointer; opacity:0.80; float:left; position:relative;padding:0px 10px;}
+        #ddmenubackground > li a:hover {color:#d0d0ce;}
+        #ddmenubackground .logo {background:transparent none repeat scroll 0% 0%; padding:0px; background-color:Transparent;}
+        /* sub-menus*/
+        #ddmenubackground ul { padding:0px; margin:0px; display:block; display:inline;}
+        #ddmenubackground li ul { position:absolute; left:0px; top:86px; margin-top:45px; width:150px; line-height:16px; background-color:#000000; color:#7ed6eb; /* for IE */ display:none; }
+        #ddmenubackground li:hover ul { display:block;}
+        #ddmenubackground li ul li{ display:block; margin:5px 20px; margin-left:34px; padding: 5px 0px;  border-top: dotted 1px #606060; list-style-type:none; }
+        #ddmenubackground li ul li:first-child { border-top: none; }
+        #ddmenubackground li ul li a { display:block; color:#7ed6eb; }
+        #ddmenubackground li ul li a:hover { color:#7FCDFE; }
+        /* main submenu */
+        #ddmenubackground #main { left:0px; top:-20px; padding-top:20px; background-color:#7cb7e3; color:#fff; z-index:999;}
+        /* search */
+
+        /* corners*/
+        #ddmenubackground .corner_inset_left { position:absolute; top:0px; left:-12px;}
+        #ddmenubackground .corner_inset_right { position:absolute; top:0px; left:150px;}
+        #ddmenubackground .last { background:transparent none repeat scroll 0% 0%; margin:0px; padding:0px; border:none; position:relative; border:none; height:0px;}
+        #ddmenubackground .corner_left { position:absolute; left:0px; top:0px;}
+        #ddmenubackground .corner_right { position:absolute; left:132px; top:0px;}
+        #ddmenubackground .middle { position:absolute; left:18px; height: 20px; width: 115px; top:0px;}

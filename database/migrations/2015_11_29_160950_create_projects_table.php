@@ -16,11 +16,14 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
 			$table->string('name');
 			$table->float('width');
+			$table->string('project_id');
 			$table->float('heigth');
 			$table->text('json');
+			$table->text('img');
 			$table->timestamps();
             $table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
+			$table->index('project_id');
 			
         });   
     }
