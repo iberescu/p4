@@ -15,7 +15,7 @@ class CreateLayoutsTable extends Migration
         Schema::create('layouts', function (Blueprint $table) {
             $table->increments('id');
 			$table->string('name');
-			$table->text('json');
+			$table->longText('json');
 			$table->string('thumbnail');
 			$table->float('width');
 			$table->float('height');

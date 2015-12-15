@@ -1,45 +1,410 @@
-.main a{
-	color: #a51c30;
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+body {
+	background: #a51c30;
+	color: #fff;
+	font-size: 100%;
+	line-height: 1.25;
+	font-family: 'Lato', Arial, sans-serif;
 }
-body{
-	margin: 0px;
-	padding: 0px;
+
+body.demo-2 {
+	background: #3498db;
 }
-.main img{
-	width:95%;
-	box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2);
+
+.container {
+	overflow: hidden;
 }
-.main .caption{
-	color:#717171;
+
+a {
+	color: rgba(0,0,0,0.4);
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover, a:focus {
+	color: #fff;
+}
+
+header {
+	margin: 0 auto;
+	padding: 2em;
+	text-align: center;
+}
+
+h1 {
+	margin: 0;
+	font-weight: 300;
+	font-size: 3em;
+}
+
+h1 span {
+	display: block;
+	padding: 0.3em 0 2em;
+	font-size: 0.5em;
+}
+
+
+#grid3d {
+	padding: 0em 3% 4em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+
+.form-wrapper{
+	background-color:#f4f7f8;
+	padding-top:50px;
 	text-align:center;
-	font-size: 14px;
-	padding-top:3px;
-	
+	font-size:18px;
+	color:black;
+	padding: 50px;
+    margin-left: auto;
+    margin-right: auto;
+	margin-top:15px;
+    width: 550px;	
+	font-family:'Lato', Arial, sans-serif;
 }
-.main h2{
-	text-align:center;
+.form-image{
+	max-width:500px;
+	margin-top:100px;
 }
-.others_list{
+
+.form-wrapper label {
+    min-width: 85px;
+	display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.form-wrapper .field {
+    padding-top: 10px;
+}
+.form-wrapper  input[type="text"], select {
+    width: 100px;
+    text-align: center;
+	padding:10px;
+}
+label{
+	cursor:pointer;
+}
+.form-wrapper #generate, .form-wrapper #lorem, .form-wrapper #users , .form-wrapper #colors{
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: #FFF;
+    margin: 0 auto;
+    background: #a51c30;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    width: 100%;
+    border: 1px solid #841222;
+    border-width: 1px 1px 3px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+	cursor:pointer;
+}
+.stong-password{
+    color: black;
+    padding: 20px;
+    margin-top: 60px;
+    background-color: #f4f7f8;
+    margin-left: auto;
+    margin-right: auto;
+    width: 550px;
+}
+.comming-soon{
+	margin-top:50px;
+}
+
+.lorem,.users,.colors{
+    color: black;	
+	margin-top:50px;
+	text-align:justify;
+	background-color:#f4f7f8;
+	font-size:20px;
+	margin-left:auto;
+	margin-right:auto;
 	padding:20px;
-	background: #F3F5F7;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(0,0,0,0.1);	
+	width:80%;
+	display:none;
+
 }
-.menu{
+.users{
+	width:65%;
+}
+.colors_pattern{
+    width: 50px;
+    height: 50px;
+    margin: 20px;
+    border-radius: 30px;
+	display:inline-block;
+}
+
+
+
+body {
+	position: relative;
+}
+
+.noscroll {
+	overflow: hidden;
+}
+
+.grid-wrap {
+	margin: 10px auto 0;
+	max-width: 1090px;
+	width: 100%;
+	padding: 0;
+	-webkit-perspective: 1500px;
+	perspective: 1500px;
+}
+
+.grid {
+	position: relative;
+	-webkit-transition: all 0.5s cubic-bezier(0,0,0.25,1);
+	transition: all 0.5s cubic-bezier(0,0,0.25,1);
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.view-full .grid {
+	-webkit-transform: translateZ(-1500px);
+	transform: translateZ(-1500px);
+}
+
+.grid figure,
+.grid .placeholder {
+	width: 340px;
+	height: 340px;
+}
+
+.grid figure {
+	margin: 10px;
+	display: inline-block;
+	cursor: pointer;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	margin-bottom:40px;
+}
+
+.grid figure.active {
+	opacity: 0;
+}
+
+.grid .placeholder {
+	pointer-events: none;
+	position: absolute;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transition: all 0.5s ease-out;
+	transition: all 0.5s ease-out;
+}
+
+.placeholder > div {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.placeholder .front img {
+	width: 100%;
+	height: 100%;
+}
+
+.placeholder .back {
+	background: white;
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.view-full .placeholder {
+	-webkit-transition: all 0.5s 0.1s cubic-bezier(0,0,0.25,1);
+	transition: all 0.5s 0.1s cubic-bezier(0,0,0.25,1);
+}
+
+.vertical .view-full .placeholder {
+	-webkit-transform: translateZ(1500px) rotateX(-179.9deg);
+	transform: translateZ(1500px) rotateX(-179.9deg); /* FF, Chrome, can we agree on one direction, pleeease? */
+}
+
+.horizontal .view-full .placeholder {
+	-webkit-transform: translateZ(1500px) rotateY(-179.9deg);
+	transform: translateZ(1500px) rotateY(-179.9deg);
+}
+
+.grid figure img {
+	display: block;
+	width: 100%;
+}
+
+.content,
+.loading {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none; /* Careful, does not work in IE < 11 http://caniuse.com/#search=pointer-events */
+}
+
+.content {
+	overflow-y: scroll;
+	height: 0; /* What seems to be the problem, officer? Well, we have a second scroll bar in Chrome! */
+	background: #fff;
+	visibility: hidden;
+	z-index: 400;
+	-webkit-overflow-scrolling: touch;
+}
+
+.loading {
+	opacity: 0;
+	z-index: 1;
+	background: transparent url(../img/preloader.gif) no-repeat center center;
+	-webkit-transform: scale(0.5);
+	transform: scale(0.5);
+	-webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+	transition: opacity 0.5s, transform 0.5s;
+}
+
+.loading.show {
+	opacity: 1;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.content.show {
+	height: auto;
+	pointer-events: auto;
+	visibility: visible;
+}
+
+.content > div {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	overflow: hidden;
+	height: 0;
+	opacity: 0;
+	background: #fff;
+}
+
+.content > div.show {
+	height: auto;
+	opacity: 1;	
+	-webkit-transition: opacity 0.6s;
+	transition: opacity 0.6s;
+}
+
+
+.close-content {
+	position: fixed;
+	z-index: 1000;
+	top: 0;
+	right: 10px;
+	font-size: 1.6em;
+	color: #aaa;
+	cursor: pointer;
+	pointer-events: none;
+	padding: 1em;
+	opacity: 0;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+.close-content:hover {
+	color: #999;
+}
+
+.content > div.show ~ .close-content {
+	opacity: 1;
+	pointer-events: auto;
+}
+i{
+	color: #c5c8ba;
+	margin-right:10px;
+}
+.user_entry > div{
+	margin-bottom:5px;
+}
+.user_entry{
+	margin-bottom:25px;
+}
+
+/* Simple fallback */
+/* if any of these are not supported, a simple fallback will be shown */
+.no-pointerevents .content,
+.no-csstransforms3d .content,
+.no-csstransitions .content,
+.no-pointerevents .content > div,
+.no-csstransforms3d .content > div,
+.no-csstransitions .content > div,
+.no-pointerevents .close-content,
+.no-csstransforms3d .close-content,
+.no-csstransitions .close-content {
+	opacity: 1;
+	visibility: visible;
+	display: none;
+	height: auto;
+}
+
+.no-pointerevents .show .close-content,
+.no-csstransforms3d .show .close-content,
+.no-csstransition .show .close-content,
+.no-pointerevents div.show,
+.no-csstransforms3d div.show,
+.no-csstransitions div.show,
+.no-csstransitions .dummy-img,
+.no-csstransitions .dummy-text,
+.no-csstransforms3d .dummy-img,
+.no-csstransforms3d .dummy-text, 
+.no-pointerevents .dummy-img,
+.no-pointerevents .dummy-text {
+	display: block !important;
+	opacity: 1;
+}
+.menu {
 	text-align:right;
-	padding:20px;
-	background: #F3F5F7;
-    border-top: 1px solid rgba(0,0,0,0.1);
-    border-bottom: 1px solid rgba(0,0,0,0.1);	
+	
 }
 .menu ul{
 	list-style-type: none;
 	margin: 0;
 	padding: 0;	
 }
-.menu ul li { display: inline;padding:5px; }
+.menu ul li { 
+	display: inline;padding:5px; 
+	color:white;
+}
 
-.projects_list{
-	padding:20px;
-	text-align:center;
+.menu ul li a{ 
+	color:white;
+}
+
+@media screen and (max-width: 1000px) {
+
+	.grid figure,
+	.grid .placeholder {
+		width: 240px;
+		height: 212px;
+	}
+
 }

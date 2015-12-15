@@ -11,7 +11,7 @@
  <div class="cont">
   <div class="demo">
     <div class="login">
-      <img class="logo-image" src="http://media.www.harvard.edu/user13/harvard_shield_wreath.png" />
+      <img class="logo-image" src="{{URL::to('/')}}/img/harvard_logo.png" />
 	    <form method='POST' action='{{Request::url()}}'>
         {!! csrf_field() !!}
       <div class="login__form">
@@ -28,7 +28,7 @@
           <input type="password" name="password" class="login__input pass" placeholder="Password"/>
         </div>
         <button type="button" class="login__submit">Sign in</button>
-        <p class="login__signup">Don't have an account? &nbsp;<a>Sign up</a></p>
+        <p class="login__signup">Don't have an account? &nbsp;<a href="{{URL::to('/')}}/register">Sign up</a></p>
       </div>
 	  </form>
     </div>

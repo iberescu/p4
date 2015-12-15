@@ -539,3 +539,17 @@ input, button {
     stroke-dashoffset: 0;
   }
 }
+
+.errors{
+	background-color: #a51c30;
+    width: 100%;
+    font-size: 15px;
+    color: white;
+    padding: 20px;	
+}
+.login_confirm__row{
+	padding-top:15px;
+}
+.name_row{
+	margin-top:-40px;
+}

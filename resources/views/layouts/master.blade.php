@@ -7,8 +7,6 @@
     </title>
 
     <meta charset='utf-8'>
-    <link href="<?php echo asset('css/main.css')?>" type='text/css' rel='stylesheet'>
-	<link href="<?php echo asset('css/bootstrap.min.css')?>" type='text/css' rel='stylesheet'>
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<link rel="shortcut icon" href="<?php echo asset('img/favicon.ico')?>">
 	

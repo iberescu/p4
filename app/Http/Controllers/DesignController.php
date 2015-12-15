@@ -20,7 +20,18 @@ class DesignController extends Controller {
 		{
 			$json = $project->json;
 		}
-		return view('design.index')->with('project_id',$id)->with('json',$json);
+		
+		$fonts = array();
+		$fontsList = \App\Font::all()->toArray();
+		if (is_array($fontsList) && count ($fontsList))
+		{
+			foreach($fontsList as $key => $value)
+			{
+				$fonts[] = $value['name'];
+			}
+		}
+		
+		return view('design.index')->with('project_id',$id)->with('json',$json)->with('fonts',$fonts);
 	}
 	public function postSave()
 	{
@@ -45,7 +56,8 @@ class DesignController extends Controller {
 		$project->width = 100;
 		$project->heigth = 100;
 		$project->project_id = $data['project_id'];
-		$project->json = $data['content'];
+		$json_obj = json_decode($data['content']);
+		$project->json = $json_obj[0]->content;
 		$project->img = $data['project_id'].'.jpg';
 		$imgSource = str_replace(' ', '+',str_replace('data:image/jpeg;base64,', '',$data['img']));
 		$imgSource = base64_decode($imgSource);

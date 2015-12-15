@@ -16,5 +16,10 @@ class FontsTableSeeder extends Seeder
 			'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
 			'name' => 'Helvetica'
 		]);		
+		DB::table('fonts')->insert([
+			'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+			'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+			'name' => 'Times New Roman'
+		]);		
 	}
 }

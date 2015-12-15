@@ -18,7 +18,7 @@ class CreateProjectsTable extends Migration
 			$table->float('width');
 			$table->string('project_id');
 			$table->float('heigth');
-			$table->text('json');
+			$table->longText('json');
 			$table->text('img');
 			$table->timestamps();
             $table->integer('user_id')->unsigned();

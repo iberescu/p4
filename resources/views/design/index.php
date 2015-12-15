@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php $mediaUrl = URL::to('/').'/';
       $baseUrl  = URL::to('/').'/';
-      $fonts    = array('Helvetica','Times New Roman','Montserrat');
 ?>
 <html>
     <head>
@@ -69,7 +68,7 @@
             var gridGroup = null;
             var preloadLogo = "<?php echo $mediaUrl ?>/designer/personalization/html5_files/preload_logo/logo.png"
 			<?php if (strlen($json)): ?>
-				var design = <?php //echo $json;?>;
+			var designLoad = '<?php echo $json; ?>';
 			<?php endif; ?>
         </script>
 
@@ -122,7 +121,7 @@
     <body id="body">
 		<?php echo csrf_field(); ?>
         <div id="fancyboxUploadImage">
-            <div class="titlecontent">
+           <!-- <div class="titlecontent">
                 <div class="icon_content">
                     <div class="fancytitle localUploadBtn">
                         <label class="fa fa-cloud-upload fa-2x"></label>
@@ -143,7 +142,8 @@
                         <label class="fa fa-camera fa-2x"></label>
                     </div>
                 </div>
-            </div>
+				
+            </div>-->
             <div class="facebookPickerBody facebookContainer">
                 <div class="pickerTitle">
                     <span class="img elem_image-editor-foto-gallery-icon fa fa-picture-o fa-2x"></span>
@@ -819,14 +819,14 @@
                 <div id="effectSave">
                     <div class="save_div_side">
                         <div style="float:left;margin-left:30px;">
-                            <div style="margin-top:15px;margin-bottom:15px;">
+                            <div style="margin-top:40px;">
                                 <p style="color:#ffffff; width:150px;"><b> Project Name:</b></p>
                                 <input type="text" id="project_name">
                             </div>
-                            <div>
+                           <!-- <div>
                                 <p style="color:#ffffff;width:150px"><b> Project Description:</b></p>
                                 <input type="text" id="project_description">
-                            </div>
+                            </div>-->
                         </div>
                         <button id="save_button_design">Save</button>
                         <p style="color:#ffffff;width:150px;float:left;margin-left:20px;margin-top:35px;" id="save_message"></p>

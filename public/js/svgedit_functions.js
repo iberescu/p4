@@ -4180,11 +4180,6 @@ $( document ).ready( function() {
     //openeditor_saveProject Action
     $( "#save_button_design" ).click( function() {
         var project_name = $( "#project_name" ).val();
-        var project_description = $( "#project_description" ).val();
-        if ( ! project_name.length ) {
-            alert( "Please enter a Project Name" );
-            return;
-        }
         var oldDataLocation = $( '.select_page_number_active' ).attr( 'data-location' );
         deleteOffsetHelpers();
         getCanvasForPreview();
@@ -4193,7 +4188,7 @@ $( document ).ready( function() {
         themePageContent[oldDataLocation].content = JSON.stringify( canvas.toJSON( propertiesToIncludeCanvas ) );
         themePageContent[oldDataLocation].content_type = 'json';
 		var _img = canvas.toDataURL({ format:"jpeg",quality:1,multiplier: 0.5});
-        var data_send = {"project_name" : project_name, '_token' : $('[name="_token"]').val(), "project_description" : project_description,"project_id":project_id,"img":_img, "content" : JSON.stringify( themePageContent )};
+        var data_send = {"project_name" : project_name, '_token' : $('[name="_token"]').val(), "project_description" : '',"project_id":project_id,"img":_img, "content" : JSON.stringify( themePageContent )};
         calculateInitialZoom( canvas.getWidth() );
         $.ajax( {
             url        : baseUrl + "/design/save",
