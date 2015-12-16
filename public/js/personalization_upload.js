@@ -882,7 +882,7 @@ $( function() {
                     self = PIB._getSelf( obj, o )
                     uid  = $.printqUniqueId( {prefix : 'loading_', sufix : 'upload_image', length : 6} );
             $.printqFileUploader.init( {
-                url               : uploadUserPhotoUrl,
+                url               : uploadUserPhotoUrl + '?_token=' + $('[name="_token"]').val(),
                 context           : 'body',
                 filesUpload       : self.find( '.files-upload-input' ).get( 0 ),
                 dropArea          : '#body',
@@ -895,6 +895,7 @@ $( function() {
                         fd.append( 'width', 'auto' );
                         fd.append( 'quality', 90 );
                         fd.append( 'height', 100 );
+                        fd.append( 'sid', sid );
                         fd.append( 'other_infos[type]', 'imageBarUpload' );
                     }
                 })( o ),
@@ -1302,7 +1303,7 @@ $( function() {
         else {
             var o = PIB.getDefaults( options );
             return this.each( function() {
-               // PIB.init( this, o );
+                PIB.init( this, o );
             } );
         }
     };

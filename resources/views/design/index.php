@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<?php $mediaUrl = URL::to('/').'/';
-      $baseUrl  = URL::to('/').'/';
+<?php 
+		$mediaUrl = URL::to('/').'/';
+		$baseUrl  = URL::to('/').'/';
 ?>
 <html>
     <head>
@@ -61,11 +62,18 @@
                 allowCropImage     =  true,
                 allowedBrushes     =  [];
             var facebookAppId      =  12345678;
-            var uploadPhotoDirName = 'test';
-            var uploadedDirPath    = 'test';
+            var uploadPhotoDirName = '<?php echo $sid ?>';
+            var uploadedDirPath    = '<?php echo URL::to('/') ?>/uploads/html5_files/';
             var ispEnableEdit      =  true;
             var page_slider = 1;
             var gridGroup = null;
+		var uploadUserPhotoUrl ="<?php echo URL::to('/') ?>/design/upload";
+		var getUserPhotosUrl   ="<?php echo URL::to('/') ?>/design/upload";
+		var preloadLogo        ="<?php echo URL::to('/') ?>/designer/personalization/html5_files/preload_logo/printq.png";
+		var loadingGifSrc	   ="<?php echo URL::to('/') ?>/img/image_upload.gif"
+		
+		var sid         	   ='<?php echo $sid;?>';
+			
             var preloadLogo = "<?php echo $mediaUrl ?>/designer/personalization/html5_files/preload_logo/logo.png"
 			<?php if (strlen($json)): ?>
 			var designLoad = '<?php echo $json; ?>';
@@ -177,8 +185,9 @@
                 <div class="imageGalleryBorder">
                     <div class="imageGallery">
                     </div>
-                    <input id = "svgedit_upload" class="files-upload-input" type="file" style="display:none;" multiple>
+                   <!-- <input id = "svgedit_upload" class="files-upload-input" type="file" style="display:none;" multiple>
                     <label for="svgedit_upload" class="connectBtn">Upload Image</label>
+					!-->
                 </div>
             </div>
             <!-- templates -->
@@ -776,8 +785,8 @@
                             <div class="thumbnails" style="  margin-top: -30px;">
                                 <div class="jcarousel-skin-pages clearfix">
                                     <div class="jcarousel-container-vertical images-carousel">
-                                        <label href="#fancyboxUploadImage" class="f-images_prev svgedit_upload_picture jcarousel-nav jcarousel-add-vertical fa fa-plus fa-2x"></label>
-                                        <button id="prev_button_upload" style=" background-image:url(<?php echo $mediaUrl ?>/img/arrowLeft.png);"></button>
+                                        <label for="svgedit_upload" class="f-images_prev svgedit_upload_picture_upload jcarousel-nav jcarousel-add-vertical fa fa-plus fa-2x"></label>
+                                        <button id="prev_button_upload" style=" background-image:url(./public/img/arrowLeft.png);"></button>
                                         <div class="f-images jcarousel jcarousel-clip jcarousel-clip-vertical">
                                             <ul class="f-thm_images jcarousel-list jcarousel-list-vertical ul_svg_edit" style="left: 0px; top: 0px; overflow:hidden; width:200000px; display:table;">
 

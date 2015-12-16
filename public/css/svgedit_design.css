@@ -1163,7 +1163,7 @@ body {
     border : 1px solid;
 }
 
-.svgedit_upload_picture {
+.svgedit_upload_picture , .svgedit_upload_picture_upload {
     width            : 23px !important;
     height           : 23px !important;
     position         : absolute;
@@ -2454,4 +2454,29 @@ body {
 }
 button{
 	border:0px;
+}
+
+}
+.canvas-container .canvas_snap_handlers_horizontal{
+    height: 0px;
+    width: 100%;
+    top: 0px;
+    border-top-width: 0.8pt;
+    border-top-style: dashed;
+    border-top-color: #a06fda;
+    display: none;
+    position: absolute;
+    z-index: 1000;
+}
+
+.canvas-container .canvas_snap_handlers_vertical{
+    height: 100%;
+    width: 0px;
+    top: 0px;
+    border-right-width: 0.8pt;
+    border-right-style: dashed;
+    border-right-color: #a06fda;
+    display: none;
+    position: absolute;
+    z-index: 1000;
 }
