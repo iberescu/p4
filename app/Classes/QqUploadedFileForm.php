@@ -36,9 +36,9 @@ class QqUploadedFileForm {
                     break;
             }
             if ($mustRotate){
-                $imagick = new Imagick();
+                $imagick = new \Imagick();
                 $imagick->readImage(realpath($_FILES['qqfile']['tmp_name']));
-                $imagick->rotateimage(new ImagickPixel(), $angle);
+                $imagick->rotateimage(new \ImagickPixel(), $angle);
                 $imagick->stripImage();
                 $imagick->setImageFormat ("jpeg");
                 if (!$imagick->writeImage($path)) {

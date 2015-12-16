@@ -10,11 +10,11 @@ class DesignController extends Controller {
     /**
     * Responds to requests to GET /
     */
-    public function getCreate() {
-       $id = md5(\Auth::id() . session_id() . time());
+    	public function getCreate() {
+	       $id = md5(\Auth::id() . session_id() . time());
 	   
-	   return redirect()->to('/design/'.$id);
-    }
+		return redirect()->to('/design/'.$id);
+    	}
 	public function getDesign($id = null)
 	{
 		$project = \App\Project::where('project_id','=',$id)->first();
@@ -83,14 +83,17 @@ class DesignController extends Controller {
 	public function postUpload()
 	{	
 		if(\Request::hasFile('qqfile')){
-			$this->_uploadAction(\Request::all());
+			return $this->_uploadAction(\Request::all());
 		
 		}	
 		else{
-			if(Request::input('returnThumbs')){
-				$this->_getUserUploadedPhotosAction(\Request::all());
+			if(\Request::input('returnThumbs')){
+				return $this->_getUserUploadedPhotosAction(\Request::all());
 			}
-		}		
+		}
+		return Response::json(array(
+                                'succes' => false,
+		));
 	}
 	private function _uploadAction($post_data)
 	{
@@ -194,7 +197,7 @@ class DesignController extends Controller {
 		}
 		return Response::json(array(
 			'success'       => $file ? true : false,
-			'id'            => $id,
+			'id'            => 1,
 			'path'          => ( isset( $post_data['isUser'] ) && $post_data['isUser'] == '1' ) ? $sid . $tmp : $tmp,
 			'name'          => isset( $post_data['name'] ) ? $post_data['name'] : '',
 			'thumbnail'     => $createThumbnail ? $thumbnail : '',
@@ -231,14 +234,14 @@ class DesignController extends Controller {
 		
 		$subfolder   = strlen( $sid ) > 0 ? $baseDir . $sid . '/' : $baseDir;
 		$returnFiles = array();
-		
-		foreach(glob($baseDir.$sid.'/*') as $file) {
+		$folderImages = glob($baseDir.$sid.'/*');
+		foreach($folderImages as $file) {
 			if( strpos( $file, '_working' ) ) {
 				$urlexplode = explode("/", $file);
 				$item	     = array();		
 				$item['image'] = str_replace("_working" ,"", $urlexplode[count($urlexplode)-1]);
 				$item['id']    = rand(1,1000);
-				$imageHandler = new Imagick($file);
+				$imageHandler = new \Imagick($file);
 				$item['other_infos']['type']			= 'imageBarUpload';
 				$item['other_infos']['mime']			= $imageHandler->getImageFormat();
 				$item['other_infos']['size']['width']   = $imageHandler->getImageWidth();
@@ -261,9 +264,9 @@ class DesignController extends Controller {
 		return URL::to('/').'/uploads/html5_files/';
 	}	
 	private function _getUserUploadDirectory(){
-        $key      = 'mySq47234#@dfasd';
-        $sid      = session_id();
-        $sid = md5( $sid . $key );
-        return $sid;	
+	        $key      = 'mySq47234#@dfasd';
+        	$sid      = \Auth::id();
+       		$sid = md5( $sid . $key );
+        	return $sid;	
 	}	
 }

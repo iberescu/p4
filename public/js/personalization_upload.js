@@ -839,7 +839,7 @@ $( function() {
                     self = PIB._getSelf( obj, o );
 
             $.printqAjaxRequest.postRequest( {
-                url        : getUserPhotosUrl,
+                url        : getUserPhotosUrl +'?_token=' + $('[name="_token"]').val(),
                 data       : {
                     sid          : uploadPhotoDirName,
                     count        : 1000,

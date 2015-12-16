@@ -35,8 +35,8 @@ class DesignerHelpers {
 				$height = null;
 			}
 			
-			$imageObj = new Imagick( $destDir . $oName );
-			$imageObj->resizeImage( $width, $height, imagick::FILTER_LANCZOS, 1, false );
+			$imageObj = new \Imagick( $destDir . $oName );
+			$imageObj->resizeImage( $width, $height, \imagick::FILTER_LANCZOS, 1, false );
 		   
 			$resp   = $imageObj->writeImage( $destDir . $tName );
 			$result = $tName;
@@ -89,24 +89,24 @@ class DesignerHelpers {
 				$width = $params['width'];
 			if( isset( $params['height'] ) )
 				$height = $params['height'];
-			$imageObj        = new Imagick( $destDir . $oName );
+			$imageObj        = new \Imagick( $destDir . $oName );
 			$original_width  = $imageObj->getImageWidth();
 			$original_height = $imageObj->getImageHeight();
 		   
 			if( $productEditor ) {
 				if( isset( $width ) && $width != 0 && $width > $height ) {
-					$imageObj->resizeImage( $width, $height, imagick::FILTER_LANCZOS, 1, true  );
+					$imageObj->resizeImage( $width, $height, \imagick::FILTER_LANCZOS, 1, true  );
 				}
 				elseif( isset( $height ) && $height != 0 ) {
-					$imageObj->resizeImage( $width, $height,imagick::FILTER_LANCZOS, 1, true );
+					$imageObj->resizeImage( $width, $height,\imagick::FILTER_LANCZOS, 1, true );
 				}
 			}
 			else {
 				if( $imageObj->getImageWidth() > $imageObj->getImageHeight() && $imageObj->getImageWidth() > 1400 ) {
-					$imageObj->resizeImage( 1400, 1400,imagick::FILTER_LANCZOS, 1, true );
+					$imageObj->resizeImage( 1400, 1400,\imagick::FILTER_LANCZOS, 1, true );
 				}
 				else if( $imageObj->getImageHeight() > 1400 ) {
-					$imageObj->resizeImage( 1400, 1400,imagick::FILTER_LANCZOS, 1, true );
+					$imageObj->resizeImage( 1400, 1400,\imagick::FILTER_LANCZOS, 1, true );
 				}
 			}
 			$imageObj->setCompressionQuality( $quality );
