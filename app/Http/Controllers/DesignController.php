@@ -35,6 +35,20 @@ class DesignController extends Controller {
 		
 		return view('design.index')->with('project_id',$id)->with('json',$json)->with('fonts',$fonts)->with('sid',$this->_getUserUploadDirectory());
 	}
+	public function getDelete($id = null)
+	{
+		if ($id != null)
+		{
+			$project = \App\Project::where('project_id','=',$id)->first();
+			if ($project)
+			{
+				$project->delete();
+				return back();
+			}
+		}
+		\Session::flash('flash_message','Id is not valid');
+		return back();
+	}	
 	public function postSave()
 	{
 		$data = \Request::all();

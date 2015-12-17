@@ -119,7 +119,7 @@ $( document ).ready( function() {
     $( '.preview_svg' ).click( function() {
 		
        var canvas_json = JSON.stringify( canvas.toDatalessObject(['objectID','opacity','name']) );
-	   
+	var _this = this;
         tempCanvas.loadFromDatalessJSON( canvas_json, function() {
             if(tempCanvas.getObjectByID(123456).length>0)
                  tempCanvas.remove(tempCanvas.getObjectByID(123456).pop());
@@ -133,8 +133,9 @@ $( document ).ready( function() {
                 top:canvasOffsetHeight,
                 width:tempCanvas.width-2*textureModeLeft,
                 height:tempCanvas.getHeight()-2*canvasOffsetHeight} );
-
-				window.open(tempImage,'_blank');
+		_this.href = tempImage;
+		_this.download = 'image.png';
+				//window.open(tempImage,'_blank');
             });
         } );		
 		

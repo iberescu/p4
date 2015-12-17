@@ -390,8 +390,8 @@
                 <div class="add_new_page_design">
                     <label class="add_page_to_project"><span>Add Page</span></label>
                 </div>
-                <button id="present" class="btn-present preview_svg">Download</button>
-                <button id="back" class="btn_back_product">Back</button>
+			<a class="preview_svg"><button id="present" class="prview_svg_class btn-present">Download</button></a>  
+			<button id="back" class="btn_back_product">Back</button>
             </div>
             <div id="editCell">
                 <div id="effectEdit">

@@ -15,6 +15,12 @@
 
 </head>
 <body>
+
+    @if(\Session::has('flash_message'))
+        <div class='flash_message'>
+            {{ \Session::get('flash_message') }}
+        </div>
+    @endif
 	{{-- Main page content will be yielded here --}}
 	@yield('content')
 

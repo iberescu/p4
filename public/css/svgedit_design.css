@@ -2480,3 +2480,6 @@ button{
     position: absolute;
     z-index: 1000;
 }
+.prview_svg_class{
+	width:110px;
+}

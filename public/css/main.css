@@ -408,3 +408,12 @@ i{
 	}
 
 }
+.flash_message{
+	width:100%;
+	color:black;
+	background-color:yellow;
+	text-align:center;
+	font-size:18px;
+	position:fixed;
+	top:0;
+}

@@ -39,3 +39,6 @@ Route::post('/design/save/', 'DesignController@postSave');
 
 # Upload action
 Route::post('/design/upload/', 'DesignController@postUpload');
+
+# Delete action
+Route::get('/design/delete/{id?}', 'DesignController@getDelete');

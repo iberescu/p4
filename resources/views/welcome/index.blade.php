@@ -13,11 +13,9 @@
 	<div class="menu">
 		<ul>	
 			 @if(Auth::check())
-				<li><a href='/'>Home</a></li>
 				<li><a href='{{Request::url()}}/create'>Create project</a></li>
 				<li><a href='{{Request::url()}}/logout'>Log out</a></li>
 			@else
-				<li><a href='/'>Home</a></li>
 				<li><a href='/login'>Log in</a></li>
 				<li><a href='/register'>Register</a></li>
 			@endif
@@ -40,7 +38,9 @@
 						<figure><a href='{{Request::url()}}/create'><img src="img/placeholder.png" alt="more soon"/></a></figure>
 				@else
 					@foreach($projects as $project)
-						<figure><a href='{{Request::url()}}/design/{{$project->project_id}}'><img src="<?php echo URL::to('/') . '/cust_images/'. md5(\Auth::id()) . '/' . $project->img ?>" alt="{{ $project->name }}"/></a></figure>
+						<figure>
+						<a href='{{Request::url()}}/design/delete/{{$project->project_id}}'>Delete</a>
+						<a href='{{Request::url()}}/design/{{$project->project_id}}'><img src="<?php echo URL::to('/') . '/cust_images/'. md5(\Auth::id()) . '/' . $project->img ?>" alt="{{ $project->name }}"/></a></figure>
 					@endforeach
 				@endif				
 			</div>
