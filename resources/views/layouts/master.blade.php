@@ -2,8 +2,8 @@
 <html>
 <head>
     <title>
-        {{-- Yield the title if it exists, otherwise default to 'Foobooks' --}}
-        @yield('title','Foobooks')
+        {{-- Yield the title if it exists, otherwise default to 'Designer' --}}
+        @yield('title','Designer')
     </title>
 
     <meta charset='utf-8'>
