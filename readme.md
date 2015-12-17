@@ -13,7 +13,7 @@ Project 4 - DESIGNING MADE EASY - CSCI E-15 Dynamic Web Applications - Harvard 2
 * Imagemagick is required
 
 ## Demo
-http://screencast.com/t/LdLBF2Il17
+http://screencast.com/t/ShKj3LRbTHn
 
 
 

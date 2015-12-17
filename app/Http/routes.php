@@ -19,26 +19,29 @@ Route::get('/login', 'Auth\AuthController@getLogin');
 # Process login form
 Route::post('/login', 'Auth\AuthController@postLogin');
 
-# Process logout
-Route::get('/logout', 'Auth\AuthController@getLogout');
-
 # Show registration form
 Route::get('/register', 'Auth\AuthController@getRegister');
 
 # Process registration form
 Route::post('/register', 'Auth\AuthController@postRegister');
 
-# Process registration form
-Route::get('/create', 'DesignController@getCreate');
+Route::group(['middleware' => 'auth'], function () {
+		
+	# Process logout
+	Route::get('/logout', 'Auth\AuthController@getLogout');
 
-# Process registration form
-Route::get('/design/{id?}', 'DesignController@getDesign');
+	# Process registration form
+	Route::get('/create', 'DesignController@getCreate');
 
-# Process project save
-Route::post('/design/save/', 'DesignController@postSave');
+	# Process registration form
+	Route::get('/design/{id?}', 'DesignController@getDesign');
 
-# Upload action
-Route::post('/design/upload/', 'DesignController@postUpload');
+	# Process project save
+	Route::post('/design/save/', 'DesignController@postSave');
 
-# Delete action
-Route::get('/design/delete/{id?}', 'DesignController@getDelete');
+	# Upload action
+	Route::post('/design/upload/', 'DesignController@postUpload');
+
+	# Delete action
+	Route::get('/design/delete/{id?}', 'DesignController@getDelete');
+});	
