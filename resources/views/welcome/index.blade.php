@@ -39,7 +39,7 @@
 				@else
 					@foreach($projects as $project)
 						<figure>
-						<a href='{{Request::url()}}/design/delete/{{$project->project_id}}'>Delete</a>
+						<a class="delete_project" href='{{Request::url()}}/design/delete/{{$project->project_id}}'>Delete</a>
 						<a href='{{Request::url()}}/design/{{$project->project_id}}'><img src="<?php echo URL::to('/') . '/cust_images/'. md5(\Auth::id()) . '/' . $project->img ?>" alt="{{ $project->name }}"/></a></figure>
 					@endforeach
 				@endif				

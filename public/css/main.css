@@ -413,7 +413,10 @@ i{
 	color:black;
 	background-color:yellow;
 	text-align:center;
-	font-size:18px;
+	font-size:20px;
 	position:fixed;
 	top:0;
+}
+.delete_project{
+	font-size:18px;
 }

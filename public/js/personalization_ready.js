@@ -133,9 +133,7 @@ $( document ).ready( function() {
                 top:canvasOffsetHeight,
                 width:tempCanvas.width-2*textureModeLeft,
                 height:tempCanvas.getHeight()-2*canvasOffsetHeight} );
-		_this.href = tempImage;
-		_this.download = 'image.png';
-				//window.open(tempImage,'_blank');
+				window.open(tempImage,'_blank');
             });
         } );		
 		
